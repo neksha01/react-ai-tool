@@ -172,7 +172,10 @@ function App() {
                   d="M100 50.5908C100 78.2051..."
                   fill="currentColor"
                 />
-                <path d="M93.9676 39.0409C96.393..." fill="currentFill" />
+                <path
+                  d="M93.9676 39.0409C96.393..."
+                  fill="currentFill"
+                />
               </svg>
               <span className="sr-only">Loading...</span>
             </div>
@@ -191,7 +194,7 @@ function App() {
             </ul>
           </div>
 
-          {/* Input Bar */}
+          {/* Input Bar (Final Keeping This One) */}
           <div
             className="dark:bg-zinc-800 bg-red-100 
                        w-[90%] sm:w-4/5 md:w-2/3 lg:w-[40%]
@@ -218,6 +221,7 @@ function App() {
             </button>
           </div>
         </div>
+
       </div>
     </div>
   );

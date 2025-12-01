@@ -19,16 +19,21 @@ const Answer = ({ ans, totalResult, index, type }) => {
     code({ node, inline, className, children, ...props }) {
       const match = /language-(\w+)/.exec(className || "");
       return !inline && match ? (
-        <SyntaxHighlighter
-          {...props}
-          children={String(children).replace(/\n$/, "")}
-          language={match[1]}
-          style={dark}
-          PreTag="div"
-          className="rounded-lg my-2 text-sm md:text-base"
-        />
+        <div className="overflow-x-auto rounded-lg my-2">
+          <SyntaxHighlighter
+            {...props}
+            language={match[1]}
+            style={dark}
+            PreTag="div"
+          >
+            {String(children).replace(/\n$/, "")}
+          </SyntaxHighlighter>
+        </div>
       ) : (
-        <code {...props} className={`${className} bg-zinc-800 px-1 py-0.5 rounded`}>
+        <code
+          {...props}
+          className={`${className} bg-zinc-800 px-1 py-0.5 rounded`}
+        >
           {children}
         </code>
       );
@@ -38,21 +43,21 @@ const Answer = ({ ans, totalResult, index, type }) => {
   return (
     <>
       {index === 0 && totalResult > 1 ? (
-        <span className="pt-2 text-base md:text-lg block dark:text-white text-zinc-800 font-semibold break-words">
+        <div className="pt-2 text-base sm:text-lg block text-white break-words font-semibold">
           {answer}
-        </span>
+        </div>
       ) : heading ? (
-        <span className="pt-2 text-base md:text-lg block dark:text-white text-zinc-800 font-semibold">
+        <div className="pt-2 text-base sm:text-lg block text-white break-words font-semibold">
           {answer}
-        </span>
+        </div>
       ) : (
-        <span
-          className={`block ${
-            type === "q" ? "pl-2 md:pl-3" : "pl-4 md:pl-6"
-          } text-sm md:text-base break-words`}
+        <div
+          className={`${
+            type === "q" ? "pl-1" : "pl-3 sm:pl-5"
+          } text-sm sm:text-base leading-relaxed break-words`}
         >
           <ReactMarkdown components={renderer}>{answer}</ReactMarkdown>
-        </span>
+        </div>
       )}
     </>
   );
