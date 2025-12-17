@@ -106,7 +106,7 @@ function Chat() {
 
   return (
     <div className={darkMode === "dark" ? "dark" : "light"}>
-      <div className="grid grid-cols-1 md:grid-cols-5 h-screen bg-white dark:bg-zinc-900 overflow-hidden text-center">
+      <div className="grid grid-cols-1 md:grid-cols-5 h-screen bg-white dark:bg-zinc-900 text-center">
 
         {/* Dark Mode Toggle */}
         <select
@@ -114,7 +114,7 @@ function Chat() {
           className="fixed bottom-20 left-4 px-3 py-2 rounded-lg shadow-md 
                      dark:text-white text-zinc-800 
                      dark:bg-zinc-800 bg-red-100 
-                     z-30"
+                     z-50"
         >
           <option value="dark">Dark</option>
           <option value="light">Light</option>
@@ -122,7 +122,7 @@ function Chat() {
 
         {/* Mobile Sidebar Button */}
         <button
-          className="absolute top-4 left-4 z-50 md:hidden 
+          className="absolute top-4 left-4 z-[60] md:hidden 
                      bg-violet-600 text-white px-3 py-2 rounded-lg"
           onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
         >
@@ -145,10 +145,10 @@ function Chat() {
         </div>
 
         {/* Main Content */}
-        <div className="col-span-4 flex flex-col h-screen relative">
+        <div className="col-span-4 flex flex-col h-screen relative pt-16 md:pt-4">
 
           {/* 🔥 HEADER + LOGOUT */}
-          <div className="flex justify-between items-center px-4">
+          <div className="flex justify-between items-center px-4 min-h-[56px]">
   <div className="flex items-center gap-3">
     {/* Avatar */}
     <div className="w-10 h-10 rounded-full bg-violet-600 text-white 
@@ -167,8 +167,8 @@ function Chat() {
   <button
     onClick={logout}
     className="px-4 py-2 rounded-lg text-sm
-               bg-red-500 hover:bg-red-600 text-white
-               dark:bg-red-600 dark:hover:bg-red-700"
+               bg-violet-600 hover:bg-violet-700 text-white
+              cursor-pointer transition-all hover:scale-105 hover:font-semibold"
   >
     Logout
   </button>
@@ -200,7 +200,7 @@ function Chat() {
             w-[90%] md:w-2/3 lg:w-[40%]
             mx-auto mb-3 rounded-full border 
             flex items-center pr-2
-            h-12 fixed bottom-2 left-1/2 
+            h-12 fixed bottom-4 left-1/2 
             -translate-x-1/2 z-50">
 
             <input
@@ -212,7 +212,7 @@ function Chat() {
                          text-black dark:text-white"
             />
 
-            <button onClick={askQuestion} className="px-4">
+            <button onClick={askQuestion} className="px-4 cursor-pointer hover:text-violet-600 hover:scale-105 hover:font-semibold transition-all">
               Ask
             </button>
           </div>
