@@ -93,7 +93,7 @@ function Chat() {
     if (selectedHistory) askQuestion();
   }, [selectedHistory]);
 
-  // 🌗 DARK MODE (UNCHANGED)
+ 
   const [darkMode, SetDarkMode] = useState("dark");
 
   useEffect(() => {
@@ -108,7 +108,7 @@ function Chat() {
     <div className={darkMode === "dark" ? "dark" : "light"}>
       <div className="grid grid-cols-1 md:grid-cols-5 h-screen bg-white dark:bg-zinc-900 text-center">
 
-        {/* Dark Mode Toggle */}
+    
         <select
           onChange={(e) => SetDarkMode(e.target.value)}
           className="fixed bottom-20 left-4 px-3 py-2 rounded-lg shadow-md 
@@ -120,7 +120,7 @@ function Chat() {
           <option value="light">Light</option>
         </select>
 
-        {/* Mobile Sidebar Button */}
+      
         <button
           className="absolute top-4 left-4 z-[60] md:hidden 
                      bg-violet-600 text-white px-3 py-2 rounded-lg"
@@ -129,7 +129,7 @@ function Chat() {
           {mobileSidebarOpen ? "✕" : "☰"}
         </button>
 
-        {/* Sidebar */}
+    
         <div
           className={`border-r border-zinc-800 bg-red-100 dark:bg-zinc-800 
           fixed md:static top-0 left-0 h-full w-64 md:w-auto 
@@ -144,26 +144,25 @@ function Chat() {
           />
         </div>
 
-        {/* Main Content */}
+     
         <div className="col-span-4 flex flex-col h-screen relative pt-16 md:pt-4">
 
-          {/* 🔥 HEADER + LOGOUT */}
           <div className="flex justify-between items-center px-4 min-h-[56px]">
   <div className="flex items-center gap-3">
-    {/* Avatar */}
+  
     <div className="w-10 h-10 rounded-full bg-violet-600 text-white 
                     flex items-center justify-center font-semibold">
       {user?.name?.charAt(0).toUpperCase()}
     </div>
 
-    {/* Name */}
+ 
     <h1 className="text-xl md:text-2xl font-semibold
                    text-zinc-800 dark:text-zinc-200">
       Hi, {user?.name || "User"}
     </h1>
   </div>
 
-  {/* Logout */}
+  
   <button
     onClick={logout}
     className="px-4 py-2 rounded-lg text-sm
@@ -175,7 +174,7 @@ function Chat() {
 </div>
 
 
-          {/* Loader */}
+         
           {loader && (
             <div className="flex justify-center my-2">
               <span className="animate-pulse text-violet-500">
@@ -184,7 +183,7 @@ function Chat() {
             </div>
           )}
 
-          {/* Answers */}
+        
           <div
             ref={scrollToAns}
             className="flex-1 overflow-y-auto px-4 py-2 pb-32 
@@ -195,7 +194,7 @@ function Chat() {
             ))}
           </div>
 
-          {/* Input */}
+        
           <div className="dark:bg-zinc-800 bg-red-100 
             w-[90%] md:w-2/3 lg:w-[40%]
             mx-auto mb-3 rounded-full border 
