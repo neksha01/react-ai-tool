@@ -5,7 +5,7 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import Chat from "./pages/Chat";
 function App() {
   return (
-    <BrowserRouter basename="/react-ai-tool">
+    <BrowserRouter >
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
