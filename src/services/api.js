@@ -2,6 +2,9 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://ai-tool-backend-1-1ite.onrender.com",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 

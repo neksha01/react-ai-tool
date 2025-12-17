@@ -7,19 +7,28 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const submit = async () => {
-    try {
-      const res = await API.post("/api/auth/login", {
-        email,
-        password,
-      });
+const submit = async () => {
+  if (!email || !password) {
+    alert("Email and password required");
+    return;
+  }
 
-      localStorage.setItem("token", res.data.token);
-      navigate("/");
-    } catch {
-      alert("Invalid credentials");
-    }
-  };
+  try {
+    console.log({ email, password }); // 🔍 debug
+
+    const res = await API.post("/api/auth/login", {
+      email,
+      password,
+    });
+
+    localStorage.setItem("token", res.data.token);
+    navigate("/");
+  } catch (err) {
+    console.error(err.response?.data);
+    alert(err.response?.data?.message || "Login failed");
+  }
+};
+
 
   return (
     <div className="h-screen flex items-center justify-center bg-white dark:bg-zinc-900">
