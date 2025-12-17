@@ -114,7 +114,7 @@ function Chat() {
           className="fixed bottom-20 left-4 px-3 py-2 rounded-lg shadow-md 
                      dark:text-white text-zinc-800 
                      dark:bg-zinc-800 bg-red-100 
-                     z-50"
+                     z-30"
         >
           <option value="dark">Dark</option>
           <option value="light">Light</option>
@@ -187,7 +187,7 @@ function Chat() {
           {/* Answers */}
           <div
             ref={scrollToAns}
-            className="flex-1 overflow-y-auto px-4 py-2 mb-20 
+            className="flex-1 overflow-y-auto px-4 py-2 pb-32 
                        dark:text-zinc-300 text-zinc-800"
           >
             {result.map((item, index) => (
