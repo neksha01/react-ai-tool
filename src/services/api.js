@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://ai-tool-backend-1-1ite.onrender.com",
 });
 
 // ✅ Attach token to every request
